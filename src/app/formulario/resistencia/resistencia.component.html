@@ -1,0 +1,43 @@
+<p>resistencia works!</p>
+<div class="container mx-auto p-8">
+    <h1 class="text-2xl font-bold text-center mb-6">Calculadora de Resistencias</h1>
+  
+    <div class="grid grid-cols-2 gap-4">
+      <div>
+        <label class="block mb-2">Color 1:</label>
+        <select [(ngModel)]="color1" class="w-full p-2 border rounded">
+          <option *ngFor="let color of colores" [value]="color.valor">{{ color.nombre }}</option>
+        </select>
+      </div>
+  
+      <div>
+        <label class="block mb-2">Color 2:</label>
+        <select [(ngModel)]="color2" class="w-full p-2 border rounded">
+          <option *ngFor="let color of colores" [value]="color.valor">{{ color.nombre }}</option>
+        </select>
+      </div>
+  
+      <div>
+        <label class="block mb-2">Multiplicador:</label>
+        <select [(ngModel)]="multiplicador" class="w-full p-2 border rounded">
+          <option *ngFor="let color of multiplicadores" [value]="color.valor">{{ color.nombre }}</option>
+        </select>
+      </div>
+  
+      <div>
+        <label class="block mb-2">Tolerancia:</label>
+        <select [(ngModel)]="tolerancia" class="w-full p-2 border rounded">
+          <option *ngFor="let tol of tolerancias" [value]="tol.valor">{{ tol.nombre }}</option>
+        </select>
+      </div>
+    </div>
+  
+    <button (click)="calcular()" class="mt-4 bg-blue-500 text-white px-4 py-2 rounded">Calcular</button>
+  
+    <div *ngIf="resultado" class="mt-6">
+      <p>Valor: {{ resultado.valor }} Ω</p>
+      <p>Máximo: {{ resultado.maximo }} Ω</p>
+      <p>Mínimo: {{ resultado.minimo }} Ω</p>
+    </div>
+  </div>
+  
